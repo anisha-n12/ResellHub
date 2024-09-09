@@ -1,23 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VJTI Resell Hub - Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Registration - VJTI Resell Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        function validateForm() {
+    var firstName = document.getElementsByName('first_name')[0].value;
+    var lastName = document.getElementsByName('last_name')[0].value;
+    var email = document.getElementsByName('email')[0].value;
+    var username = document.getElementsByName('username')[0].value;
+    var password = document.getElementsByName('password')[0].value;
+    var confirmPassword = document.getElementsByName('confpassword')[0].value;
+
+    // Check if any required field is empty
+    if (firstName.trim() === '' || lastName.trim() === '' || email.trim() === '' || username.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+        alert('Please fill in all required fields.');
+        return false;
+    }
+
+    // Check if password and confirm password match
+    if (password !== confirmPassword) {
+        alert('Password and Confirm Password do not match.');
+        return false;
+    }
+
+    // Check if password is at least 6 characters long and contains at least one special character
+    if (password.length < 6 || !/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+        alert('Password must be at least 6 characters long and contain at least one special character.');
+        return false;
+    }
+
+    return true;
+}
+    </script>
+    
+     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <style>
         /* Global Styles */
-        body {
+         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
@@ -141,6 +170,18 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             grid-gap: 20px;
         }
+        .btn-warning {
+      color: #ffffff; /* Text color */
+      background-color: #FD5F04 !important; /* Orange background color */
+      border-color: #FD5F04 !important; /* Orange border color */
+    }
+
+    /* Hover state */
+    .btn-warning:hover {
+      color: #000000; /* Text color on hover */
+      background-color: #fe4d00 !important; /* Darker orange background color on hover */
+      border-color: #cc4d00 !important; /* Darker orange border color on hover */
+    }
         .listing-item img {
             max-width: 100%;
             height: auto;
@@ -157,6 +198,10 @@
             margin-top: 0;
             font-size: 36px;
         }
+         a {
+    color: inherit; /* Use the color inherited from its parent */
+    text-decoration: none; /* Optional: Remove underline */
+}
         .banner p {
             font-size: 20px;
             line-height: 1.5;
@@ -184,11 +229,35 @@
             text-align: center;
             padding: 100px 0;
         }
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        .container1 {
+            width: 70%;
+            margin: 0 auto;
+            height: 50%;
+        }
+        .category-checkboxes {
+            margin-bottom: 20px;
+        }
+
+        .category-checkboxes label {
+            margin-right: 20px;
+        }
+    </style>
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
+     <nav>
         <div class="container">
         
         
@@ -212,85 +281,38 @@
         </div>
     </nav>
 <br><br><br><br><br><br><br>
-<header class="bg-orange py-5">
-                <div class="container px-5">
-                    <div class="row gx-5 align-items-center justify-content-center">
-                        <div class="col-lg-8 col-xl-7 col-xxl-6">
-                            <div class="my-5 text-center text-xl-start">
-                                <h1 class="display-5 fw-bolder text-white mb-2">Welcome to Resell Hub</h1>
-                                <p class="lead fw-normal text-white-50 mb-4">Discover a wide range of products at amazing prices.</p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-dark btn-lg px-4 me-sm-3" href="signup.jsp">Register</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="login.jsp">Login</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://img.freepik.com/free-vector/shopping-paper-bags-icon-isolated_18591-82221.jpg" alt="..." /></div>
-                    </div>
-                </div>
-            </header>
-            <!-- Features section-->
-            <section class="py-5" id="features">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5">
-                        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">A better way to start selling.</h2></div>
-                        <div class="col-lg-8">
-                            <div class="row gx-5 row-cols-1 row-cols-md-2">
-                                <div class="col mb-5 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                                    <h2 class="h5">Resell your stuff</h2>
-                                    <p class="mb-0">Dive into our platform's user-friendly interface to effortlessly list your items for resale, reaching eager buyers in no time.</p>
-                                </div>
-                                <div class="col mb-5 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                                    <h2 class="h5">Buy cheaper</h2>
-                                    <p class="mb-0"> Discover unbeatable deals on a plethora of products, from electronics to fashion, allowing you to save big on every purchase.</p>
-                                </div>
-                                <div class="col mb-5 mb-md-0 h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                                    <h2 class="h5">Explore</h2>
-                                    <p class="mb-0"> Embark on a journey through our diverse array of categories, catering to every need and interest imaginable, ensuring something for everyone.</p>
-                                </div>
-                                <div class="col h-100">
-                                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                                    <h2 class="h5">Connect</h2>
-                                    <p class="mb-0"> Forge meaningful connections with sellers from all corners, fostering a dynamic marketplace where transactions flourish seamlessly.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Testimonial section-->
-            <div class="py-5 bg-light">
-                <div class="container px-5 my-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-10 col-xl-7">
-                            <div class="text-center">
-                                <div class="fs-4 mb-4 fst-italic">"We want this Project to be useful to the community and connect the consumers with sellers accross the campus!"</div>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
-                                    <div class="fw-bold">
-                                        
-                                        Anisha
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-           
-    <!-- Footer -->
+    <div class="container1">
+        <h2 align="center">Registration</h2>
+        <form action="registration_process.jsp" method="POST" onsubmit="return validateForm()">
+            <input type="text" class="form-control" name="first_name" placeholder="First Name" required>
+            <input type="text" class="form-control" name="middle_name" placeholder="Middle Name">
+            <input type="text" name="last_name" class="form-control" placeholder="Last Name" required>
+            <input type="email" name="email" class="form-control" placeholder="Email Address" required><br>
+            <input type="tel" name="contact_no" class="form-control" placeholder="Contact Number"><br>
+            <input type="text" name="branch" class="form-control" placeholder="Branch" required><br><hr>
+            <input type="text" name="username" class="form-control" placeholder="Username" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" required><br>
+            <input type="password" name="confpassword" class="form-control" placeholder="Confirm Password" required><br>
+             <div class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-warning" type="submit">Register</button>
+  <a href="index.jsp" class="btn btn-dark"><button class="btn btn-dark" type="button">Cancel</button></a>
+</div>
+        </form></div>
+        <br><br>
+        <div class="row">
+        <div class="col-md-5"></div>
+        <div class="col-4">
+            Already have an account? <a href="login.jsp" style="color: blue">Log in</a>
+</div>
+ <div class="col-md-3"></div></div>
+        
+        
+   
+   <br><br><br>
     <footer>
-        <div class="container">
-            <p style="color:#000">&copy; 2024 VJTI Resell Hub. All rights reserved.</p>
+        <div class="container1">
+            <p>&copy; 2024 VJTI Resell Hub. All rights reserved.</p>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    
 </body>
 </html>
